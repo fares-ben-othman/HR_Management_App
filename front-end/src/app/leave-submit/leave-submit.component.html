@@ -1,0 +1,39 @@
+<app-navbar></app-navbar>
+<div class="container leave-submit-container">
+  <div class="header leave-submit-header">
+    <h2>Submit Leave Request</h2>
+  </div>
+  <form class="leave-submit-form" (ngSubmit)="onSubmit()">
+    <div class="form-group detail-row">
+      <label for="type" class="detail-title">Leave Type:</label>
+      <select id="type" [(ngModel)]="leaveRequest.type" name="type" required class="detail-value">
+        <option value="" disabled>Select a leave type</option>
+        <option value="Annual Leave">Annual Leave </option>
+        <option value="Sick Leave">Sick Leave </option>
+        <option value="Maternity Leave">Maternity Leave </option>
+        <option value="Paternity Leave">Paternity Leave </option>
+        <option value="Marriage Leave">Marriage Leave </option>
+        <option value="Bereavement Leave">Bereavement Leave </option>
+        <option value="Parental Leave">Parental Leave </option>
+        <option value="Leave for National Service">Leave for National Service </option>
+        <option value="Study Leave">Study Leave </option>
+        <option value="Special Leave">Special Leave </option>
+        <option value="Unpaid Leave">Unpaid Leave </option>
+      </select>
+    </div>
+    
+    <div class="form-group detail-row">
+      <label for="date_debut" class="detail-title">Start Date:</label>
+      <input type="date" id="date_debut" [(ngModel)]="leaveRequest.date_debut" name="date_debut" required class="detail-value" />
+    </div>
+    
+    <div class="form-group detail-row">
+      <label for="date_fin" class="detail-title">End Date:</label>
+      <input type="date" id="date_fin" [(ngModel)]="leaveRequest.date_fin" name="date_fin" required class="detail-value" />
+    </div>
+    
+    <button type="submit" class="submit-button">Submit Leave Request</button>
+  </form>
+</div>
+
+  

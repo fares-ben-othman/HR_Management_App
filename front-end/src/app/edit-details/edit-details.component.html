@@ -1,0 +1,23 @@
+<div class="edit-details-container">
+    <h1>Edit Your Details</h1>
+    <form (ngSubmit)="onSubmit()" #editForm="ngForm">
+      <label for="nom">Name:</label>
+      <input type="text" id="nom" [(ngModel)]="user.nom" name="nom" required>
+  
+      <label for="poste">Poste:</label>
+      <input type="text" id="poste" [(ngModel)]="user.poste" name="poste" required>
+  
+      <label for="departement">Departement:</label>
+      <input type="text" id="departement" [(ngModel)]="user.departement" name="departement" required>
+  
+      <label for="email">Email:</label>
+      <input type="email" id="email" [(ngModel)]="user.email" name="email" required>
+  
+      <label for="date_d_embauche">Date d'embauche:</label>
+      <input type="date" id="date_d_embauche" [(ngModel)]="user.date_d_embauche" name="date_d_embauche" required>
+      
+      <button type="submit">Save Changes</button>
+    </form>
+  </div>
+  
+

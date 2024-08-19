@@ -1,0 +1,21 @@
+<app-navbar></app-navbar>
+<div class="bonus-history-container">
+    <h2>Bonus History</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Bonus Type</th>
+          <th>Amount</th>
+          <th>Date of Attribution</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let bonus of bonusHistory">
+          <td>{{ bonus.type }}</td>
+          <td>{{ bonus.montant }}</td>
+          <td>{{ bonus.date_d_attribution | date: 'yyyy-MM-dd' }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  

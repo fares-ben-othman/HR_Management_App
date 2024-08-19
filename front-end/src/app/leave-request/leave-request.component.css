@@ -1,0 +1,100 @@
+/* leave-request.component.css */
+
+/* Container for the leave requests */
+.leave-requests-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Header styling */
+.leave-requests-container h2 {
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 20px;
+    border-bottom: 2px solid #e0e0e0;
+    padding-bottom: 10px;
+    text-align: center;
+}
+
+/* Table styling */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+
+thead {
+    background-color: #f0f0f0;
+}
+
+th, td {
+    text-align: left;
+    padding: 12px;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+th {
+    font-weight: 600;
+}
+
+tbody tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+/* Button styling */
+button {
+    padding: 8px 15px;
+    font-size: 0.9rem;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    border: none;
+}
+
+button:hover {
+    opacity: 0.9;
+}
+
+button:first-of-type {
+    background-color: #4caf50;
+    color: #fff;
+    margin-right: 5px;
+}
+
+button:last-of-type {
+    background-color: #f44336;
+    color: #fff;
+}
+
+/* No requests found message */
+p {
+    font-size: 1rem;
+    color: #666;
+    text-align: center;
+    margin-top: 20px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .leave-requests-container {
+        padding: 15px;
+    }
+
+    .leave-requests-container h2 {
+        font-size: 1.5rem;
+    }
+
+    th, td {
+        padding: 10px;
+    }
+
+    button {
+        font-size: 0.85rem;
+        padding: 6px 10px;
+    }
+}

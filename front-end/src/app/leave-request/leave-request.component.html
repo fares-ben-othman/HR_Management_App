@@ -1,0 +1,42 @@
+<app-navbar></app-navbar>
+<div class="leave-requests-container" *ngIf="leaveRequests.length > 0">
+    <h2>Leave Requests</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Employee</th>
+          <th>Employee ID</th>
+          <th>Type</th>
+          <th>Leave ID</th>
+          <th>Date Start</th>
+          <th>Date End</th>
+          <th>Status</th>
+          <th>Leave Balance</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let request of leaveRequests">
+          <td>{{ request.employe_nom }}</td>
+          <td>{{ request.employe_id }}</td>
+          <td>{{ request.type }}</td>
+          <td>{{ request.request_id }}</td>
+          <td>{{ formatDate(request.date_debut) }}</td>
+          <td>{{ formatDate(request.date_fin) }}</td>
+          <td>{{ request.statut }}</td>
+          <td>{{ request.solde_conges }}</td>
+          <td>
+            <button (click)="acceptLeaveRequest(request.request_id)">Accept</button>
+            <button (click)="refuseLeaveRequest(request.request_id)">Refuse</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div *ngIf="leaveRequests.length === 0">
+    <p>No leave requests found.</p>
+  </div>
+  
+  
+
+  

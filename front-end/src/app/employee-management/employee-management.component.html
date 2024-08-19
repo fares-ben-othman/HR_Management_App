@@ -1,0 +1,50 @@
+<app-navbar></app-navbar>
+<div class="employee-management-container">
+    <h2>Search for employee</h2>
+  
+    <!-- Search Section -->
+    <div class="search-section">
+      <input
+        type="text"
+        [(ngModel)]="searchTerm"
+        (ngModelChange)="searchEmployees()"
+        placeholder="Search by  Name"
+        class="search-input"
+      />
+    </div>
+  
+    <div class="employee-list">
+      <div *ngFor="let employee of filteredEmployees" class="employee-card">
+        <h3>{{ employee.nom }}</h3>
+        <p><strong>Email:</strong> {{ employee.email }}</p>
+        <p><strong>Position:</strong> {{ employee.poste }}</p>
+        <p><strong>Department:</strong> {{ employee.departement }}</p>
+        <button (click)="editEmployee(employee)">Edit</button>
+        <button id="deleteButton" (click)="deleteEmployee(employee.id)">Delete</button>
+      </div>
+    </div>
+  
+    <!-- Edit Employee Modal -->
+    <div *ngIf="selectedEmployee" class="modal">
+      <div class="modal-content">
+        <h3>Edit Employee</h3>
+        <form (ngSubmit)="updateEmployee()">
+          <label for="nom">Name:</label>
+          <input type="text" id="nom" [(ngModel)]="selectedEmployee.nom" name="nom" required>
+  
+          <label for="email">Email:</label>
+          <input type="email" id="email" [(ngModel)]="selectedEmployee.email" name="email" required>
+  
+          <label for="poste">Position:</label>
+          <input type="text" id="poste" [(ngModel)]="selectedEmployee.poste" name="poste" required>
+  
+          <label for="departement">Department:</label>
+          <input type="text" id="departement" [(ngModel)]="selectedEmployee.departement" name="departement" required>
+  
+          <button type="submit">Save Changes</button>
+          <button (click)="selectedEmployee = null">Cancel</button>
+        </form>
+      </div>
+    </div>
+  </div>
+  

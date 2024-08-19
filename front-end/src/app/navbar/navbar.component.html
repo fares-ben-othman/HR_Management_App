@@ -1,0 +1,35 @@
+<nav class="navbar">
+  <div class="navbar-container">
+    <div class="navbar-left">
+      <a class="navbar-brand" href="#">HR Management App</a>
+    </div>
+    <div class="navbar-right">
+      <span *ngIf="isLoggedIn()" id="Welcome">Welcome, {{ getUsername() }} !</span>
+      
+      <div class="dropdown">
+        <button class="dropbtn" (click)="toggleDropdown()">Menu</button>
+        <div class="dropdown-content" [ngClass]="{'show': dropdownOpen}">
+          <ng-container *ngIf="role === 'Employé'">
+            <a routerLink="/dashboard">Dashboard</a>
+            <a routerLink="/leave-submit">Submit Leave Request</a>
+            <a routerLink="/leave-history">Leave History</a>
+            <a routerLink="/bonus-history">bonus History</a>
+          </ng-container>
+          <ng-container *ngIf="role === 'Utilisateur RH' || role === 'Administrateur'">
+            <a routerLink="/dashboard">Dashboard</a>
+            <a routerLink="/leave-request">leave requests</a>
+            <a routerLink="/bonus-management">Bonus Management</a>
+            <a routerLink="/employee-management">Employee Management</a>
+          </ng-container>
+        </div>
+      </div>
+      
+      <button *ngIf="isLoggedIn()" (click)="logout()" id="button">Logout</button>
+    </div>
+  </div>
+</nav>
+
+  
+  
+  
+  

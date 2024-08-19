@@ -1,0 +1,69 @@
+/* General Styles */
+body {
+  font-family: 'Arial', sans-serif;
+  background-color: #f4f6f8;
+  color: #333;
+  margin: 0;
+  padding: 0;
+  line-height: 1.6;
+}
+
+/* Container */
+.leave-history-container {
+  width: 100%;
+  max-width: 800px;
+  margin: 50px auto;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Header */
+.leave-history-header {
+  border-bottom: 1px solid #dddfe2;
+  padding-bottom: 20px;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.leave-history-header h2 {
+  font-size: 2rem;
+  margin: 0;
+  color: #24292e;
+}
+
+/* Table Section */
+.leave-history-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.leave-history-table th,
+.leave-history-table td {
+  padding: 12px;
+  text-align: left;
+  border-bottom: 1px solid #dddfe2;
+}
+
+.leave-history-table th {
+  background-color: #f4f6f8;
+  color: #24292e;
+  font-weight: bold;
+}
+
+.leave-history-table tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .leave-history-table {
+      font-size: 14px;
+  }
+
+  .leave-history-table th,
+  .leave-history-table td {
+      padding: 8px;
+  }
+}

@@ -1,0 +1,33 @@
+<div class="container">
+    <div class="header">
+        <h2>Your Details</h2>
+    </div>
+    <div class="employee-details">
+        <div class="detail-row">
+            <span class="detail-title">Name:</span>
+            <span class="detail-value">{{ employee?.nom }}</span>
+        </div>
+        <div class="detail-row">
+            <span class="detail-title">Position:</span>
+            <span class="detail-value">{{ employee?.poste }}</span>
+        </div>
+        <div class="detail-row">
+            <span class="detail-title">Department:</span>
+            <span class="detail-value">{{ employee?.departement }}</span>
+        </div>
+        <div class="detail-row">
+            <span class="detail-title">Email:</span>
+            <span class="detail-value">{{ employee?.email }}</span>
+        </div>
+        <div class="detail-row">
+            <span class="detail-title">Date of Hire:</span>
+            <span class="detail-value">{{ formatDate(employee?.date_d_embauche) }}</span>
+        </div>
+    </div>
+    <button routerLink="/edit-details">Edit Details</button>
+</div>
+
+  
+  
+  
+  

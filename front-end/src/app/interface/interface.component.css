@@ -1,0 +1,18 @@
+#sign {
+    display: block;
+    text-align: center; /* Center text inside the #help element */
+    margin-top: 20px;   /* Adjust the margin as needed */
+    padding-top: 0.75rem;
+    padding-bottom: 0.75rem;
+    color: #6c757d;
+    caption-side: bottom; 
+}
+#log{
+    text-align: center;
+    font-size: 40px;
+}
+.form-group input:focus::placeholder,
+.form-group input:not(:placeholder-shown)::placeholder {
+  opacity: 0; /* Hide placeholder text when input is focused or has content */
+}
+

@@ -1,0 +1,83 @@
+/* General Styles */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f6f8;
+    color: #333;
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+  }
+  
+  /* Container */
+  .bonus-management-container {
+    width: 100%;
+    max-width: 800px;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Header */
+  .bonus-management-container h2 {
+    font-size: 2rem;
+    margin: 0 0 20px 0;
+    color: #24292e;
+    text-align: center;
+  }
+  
+  /* Form Section */
+  .form-group {
+    display: flex;
+    flex-direction: column;
+    padding: 12px 0;
+    border-bottom: 1px solid #dddfe2;
+  }
+  
+  .form-group:last-child {
+    border-bottom: none;
+  }
+  
+  label {
+    font-weight: bold;
+    color: #24292e;
+  }
+  
+  input,
+  select {
+    padding: 8px;
+    border: 1px solid #dddfe2;
+    border-radius: 4px;
+    color: #586069;
+  }
+  
+  /* Buttons */
+  .submit-button {
+    background-color: #270ae4;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-top: 20px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  .submit-button:hover {
+    background-color: #452be8;
+  }
+  
+  /* Responsive */
+  @media (max-width: 768px) {
+    .form-group {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+  }
+  
+  
