@@ -1,47 +1,61 @@
 .edit-details-container {
-    margin-top: 100px; 
-    padding: 20px;
-    background-color: #f8f9fa; /* Light background similar to GitHub or Facebook */
-    border-radius: 8px;
-    max-width: 600px;
-    margin-left: auto;
-    margin-right: auto;
-    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-  }
-  
-  h2 {
-    text-align: center;
-    font-size: 1.8rem;
-    margin-bottom: 20px;
-  }
-  
-  form {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-  }
-  
-  input, select {
-    padding: 10px;
-    font-size: 1rem;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-  }
-  
-  .save-button {
-    margin-top: 20px;
-    padding: 10px 20px;
-    font-size: 1rem;
-    color: #fff;
-    background-color: #007bff;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-  }
-  
-  .save-button:hover {
-    background-color: #0056b3;
-  }
-  
-  
+  max-width: 600px; /* Set maximum width */
+  margin: 100px auto; /* Center the container with top margin */
+  padding: 20px; /* Padding inside the container */
+  background-color: #ffffff; /* White background for a clean look */
+  border-radius: 8px; /* Rounded corners */
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+}
+
+h1 {
+  text-align: center; /* Center the heading */
+  font-size: 24px; /* Font size for the heading */
+  margin-bottom: 20px; /* Space below the heading */
+  color: #24292e; /* Dark heading color */
+}
+
+form {
+  display: flex; /* Use flexbox for layout */
+  flex-direction: column; /* Arrange items in a column */
+  gap: 15px; /* Space between form elements */
+}
+
+label {
+  font-weight: 600; /* Bold labels */
+  margin-bottom: 5px; /* Space below labels */
+  color: #24292e; /* Dark color for labels */
+}
+
+input {
+  border-radius: 5px; /* Rounded corners for input */
+  border: 1px solid #dddfe2; /* Light gray border */
+  padding: 10px; /* Padding inside input */
+  font-size: 16px; /* Font size for input text */
+  color: #333; /* Dark text color */
+  background-color: #f9f9f9; /* Light background for input */
+}
+
+input:focus {
+  border-color: #6c63ff; /* Highlight border on focus */
+  box-shadow: 0 0 5px rgba(108, 99, 255, 0.5); /* Subtle shadow on focus */
+  outline: none; /* Remove default outline */
+}
+
+button {
+  width: 100%; /* Full width for the button */
+  padding: 10px; /* Padding for the button */
+  font-size: 16px; /* Font size for button text */
+  background-color: #6c63ff; /* Primary button color */
+  color: #fff; /* White text */
+  border: none; /* No border */
+  border-radius: 5px; /* Rounded corners */
+  transition: background-color 0.3s ease; /* Smooth transition for hover effect */
+  cursor: pointer; /* Pointer cursor on hover */
+}
+
+button:hover {
+  background-color: #5750d4; /* Darker shade on hover */
+}
+
+
   

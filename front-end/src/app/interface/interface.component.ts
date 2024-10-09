@@ -3,6 +3,7 @@ import { AuthentificationService } from '../authentification.service';
 import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { tap } from 'rxjs/operators';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-interface',
@@ -24,7 +25,12 @@ export class InterfaceComponent {
       },
       error => {
         console.log('Login failed', error);
-        alert('Invalid email or password');
+        Swal.fire({
+          icon: 'error',
+          title: 'Oops...',
+          text: 'Invalid email or password!',
+        });
+        
       }
     );
   }

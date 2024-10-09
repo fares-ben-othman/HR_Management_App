@@ -73,12 +73,10 @@ router.post('/create', (req, res) => {
         }
     );
 });
-// Route to accept a leave request
 router.put('/:id/accept', async (req, res) => {
     const leaveId = req.params.id;
 
     try {
-        // Get the leave request by ID
         const leaveResult = await pool.query('SELECT * FROM leaves WHERE id = $1', [leaveId]);
         const leave = leaveResult.rows[0];
 
@@ -86,31 +84,36 @@ router.put('/:id/accept', async (req, res) => {
             return res.status(404).json({ message: 'Leave request not found' });
         }
 
-        // Calculate the duration of the leave in days
-        const startDate = new Date(leave.date_debut);
-        const endDate = new Date(leave.date_fin);
-        const duration = Math.ceil((endDate - startDate) / (1000 * 60 * 60 * 24)) + 1;
-
-        // Get the employee's leave balance in days
+        const duration = calculateLeaveDuration(leave.date_debut, leave.date_fin);
         const userResult = await pool.query('SELECT solde_conges FROM users WHERE id = $1', [leave.employe_id]);
-        const leaveBalance = userResult.rows[0].solde_conges;
+        const leaveBalance = userResult.rows[0]?.solde_conges;
 
-        if (leaveBalance < duration) {
-            return res.status(400).json({ message: 'Not enough leave balance' });
+        if (leaveBalance === undefined) {
+            return res.status(404).json({ message: 'User not found' });
         }
 
-        // Update the leave request status to 'Accepted'
-        await pool.query('UPDATE leaves SET statut = $1 WHERE id = $2', ['Accepted', leaveId]);
+        if (leaveBalance < duration) {
+            return res.status(400).json({ message: 'Not enough leave balance', duration, leaveBalance });
+        }
 
-        // Subtract the leave duration from the user's leave balance
+        await pool.query('UPDATE leaves SET statut = $1 WHERE id = $2', ['Accepted', leaveId]);
         const newBalance = leaveBalance - duration;
         await pool.query('UPDATE users SET solde_conges = $1 WHERE id = $2', [newBalance, leave.employe_id]);
 
         res.json({ message: 'Leave request accepted and leave balance updated' });
     } catch (err) {
+        console.error('Error accepting leave:', err.message);
         res.status(500).json({ error: err.message });
     }
 });
+
+
+// Function to calculate leave duration
+function calculateLeaveDuration(startDate, endDate) {
+    const start = new Date(startDate);
+    const end = new Date(endDate);
+    return Math.ceil((end - start) / (1000 * 60 * 60 * 24)) + 1; // +1 to include both start and end days
+}
 
 // Route to refuse a leave request
 router.put('/:id/refuse', async (req, res) => {

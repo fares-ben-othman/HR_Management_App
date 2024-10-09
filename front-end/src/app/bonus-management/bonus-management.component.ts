@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { BonusService } from '../bonus.service';
 import { Router } from '@angular/router';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-bonus-management',
@@ -29,14 +30,29 @@ export class BonusManagementComponent implements OnInit {
     this.bonusService.addBonus(this.bonus).subscribe(
       () => {
         console.log('Bonus saved successfully');
-        console.log(this.bonus);
-        this.bonus = { employe_id: '', type: '', montant: '', date_d_attribution: '' };
-        this.router.navigate(['/dashboard_reload']);  
+        // Show SweetAlert success notification
+        Swal.fire({
+          icon: 'success',
+          title: 'Bonus Added!',
+          text: 'The bonus has been successfully given.',
+          confirmButtonText: 'OK'
+        }).then(() => {
+          this.bonus = { employe_id: '', type: '', montant: '', date_d_attribution: '' }; // Reset form
+          this.router.navigate(['/dashboard_reload']);  
+        });
       },
       (error) => {
         console.error('Error saving bonus:', error);
+        // Show SweetAlert error notification
+        Swal.fire({
+          icon: 'error',
+          title: 'Error!',
+          text: 'An error occurred while saving the bonus. Please try again.',
+          confirmButtonText: 'OK'
+        });
       }
     );
   }
 }
+
 

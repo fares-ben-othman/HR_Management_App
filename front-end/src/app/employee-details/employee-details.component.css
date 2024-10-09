@@ -39,6 +39,23 @@ body {
   flex-direction: column;
 }
 
+/* Profile Picture */
+.profile-picture {
+  display: flex;
+  justify-content: center;
+  margin: 20px auto; /* Center the picture */
+}
+
+.profile-img {
+  width: 150px; /* Set width */
+  height: 150px; /* Set height to the same value */
+  border-radius: 50%; /* Full circle */
+  object-fit: cover; /* Cover the container */
+  border: 3px solid #dddfe2; /* Optional border */
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+}
+
+/* Employee Detail Rows */
 .employee-details .detail-row {
   display: flex;
   justify-content: space-between;
@@ -69,30 +86,25 @@ button {
   font-size: 1rem;
   cursor: pointer;
   transition: background-color 0.3s ease;
-  margin-top: 20px;
+  margin: 20px auto; /* Center the button */
+  display: block; /* Centers the button horizontally */
+  width: fit-content; /* Adjust width to fit content */
 }
 
 button:hover {
   background-color: #452be8;
 }
 
-/* Centering the button */
-button {
-  display: block;
-  margin: 20px auto 0 auto; /* Centers the button horizontally */
-}
-
 /* Responsive */
 @media (max-width: 768px) {
   .employee-details .detail-row {
-      flex-direction: column;
-      align-items: flex-start;
+    flex-direction: column;
+    align-items: flex-start;
   }
 
   .detail-value {
-      margin-top: 5px;
+    margin-top: 5px;
   }
 }
-
 
   

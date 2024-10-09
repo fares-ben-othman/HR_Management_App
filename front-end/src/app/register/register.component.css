@@ -1,19 +1,73 @@
 .register-container {
-    max-width: 500px;
-    margin: 50px auto;
-    padding: 20px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    background-color: #f9f9f9;
-  }
-  
-  .form-group {
-    margin-bottom: 15px;
-  }
-  
-  .btn-primary {
-    width: 100%;
-  }
-#register{
+  max-width: 500px;
+  margin: 20px auto; /* Decreased top margin for less pagination */
+  padding: 20px;
+  background-color: #fff; /* Match the white background */
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+  border: 1px solid #dddfe2; /* Light gray border */
+}
+
+.form-group {
+  margin-bottom: 10px; /* Reduced distance between form groups */
+}
+
+.form-control {
+  border-radius: 5px;
+  border: 1px solid #dddfe2; /* Light gray border */
+  padding: 10px;
+  font-size: 16px;
+  color: #333; /* Dark text color */
+  background-color: #f9f9f9; /* Light background for input */
+}
+
+.form-control:focus {
+  border-color: #6c63ff; /* Consistent with your primary color */
+  box-shadow: 0 0 5px rgba(108, 99, 255, 0.5); /* Subtle shadow on focus */
+  outline: none;
+}
+
+label {
+  font-weight: 600;
+  margin-bottom: 5px;
+  display: inline-block;
+  color: #24292e; /* Dark gray for labels */
+}
+
+.btn-primary {
+  width: 100%;
+  padding: 10px;
+  font-size: 16px;
+  background-color: #6c63ff; /* Primary button color */
+  border: none; /* Clean border */
+  color: #fff; /* White text */
+  border-radius: 5px;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  cursor: pointer;
+}
+
+.btn-primary:hover {
+  background-color: #5750d4; /* Slightly darker on hover */
+}
+
+#register {
   text-align: center;
-}  
+  font-size: 24px;
+  font-weight: 700;
+  margin-bottom: 15px; /* Reduced bottom margin for less spacing */
+  color: #24292e; /* Dark heading color */
+}
+
+input[type="checkbox"] {
+  margin-right: 10px;
+}
+
+a {
+  color: #6c63ff; /* Primary color for links */
+  text-decoration: none;
+}
+
+a:hover {
+  color: #5750d4; /* Slightly darker on hover */
+}
+

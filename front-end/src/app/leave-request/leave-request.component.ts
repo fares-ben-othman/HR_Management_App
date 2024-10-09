@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { LeaveService } from '../leave.service';
-
+import Swal from 'sweetalert2';
 @Component({
   selector: 'app-leave-request',
   templateUrl: './leave-request.component.html',
@@ -25,27 +25,53 @@ export class LeaveRequestComponent implements OnInit {
 
   acceptLeaveRequest(leaveId: number): void {
     this.leaveService.acceptLeaveRequest(leaveId).subscribe(
-      response => {
-        console.log(response);
-        window.location.reload(); 
-      },
-      error => {
-        console.error('Error accepting leave request:', error);
-      }
+        response => {
+            console.log('Leave accepted:', response);
+            Swal.fire({
+                icon: 'success',
+                title: 'Success!',
+                text: response.message,
+                confirmButtonText: 'OK'
+            }).then(() => {
+                this.loadLeaveRequests(); // Load or update the leaves UI
+            });
+        },
+        error => {
+            console.error('Error accepting leave request:', error);
+            Swal.fire({
+                icon: 'error',
+                title: 'Error!',
+                text: error.error.message || 'An error occurred. Please try again.',
+                confirmButtonText: 'OK'
+            });
+        }
     );
-  }
+}
   
-  refuseLeaveRequest(leaveId: number): void {
-    this.leaveService.refuseLeaveRequest(leaveId).subscribe(
+refuseLeaveRequest(leaveId: number): void {
+  this.leaveService.refuseLeaveRequest(leaveId).subscribe(
       response => {
-        console.log(response);
-        window.location.reload(); 
+          console.log('Leave refused:', response);
+          Swal.fire({
+              icon: 'success',
+              title: 'Success!',
+              text: response.message,
+              confirmButtonText: 'OK'
+          }).then(() => {
+              this.loadLeaveRequests(); // Load or update the leaves UI
+          });
       },
       error => {
-        console.error('Error refusing leave request:', error);
+          console.error('Error refusing leave request:', error);
+          Swal.fire({
+              icon: 'error',
+              title: 'Error!',
+              text: error.error.message || 'An error occurred. Please try again.',
+              confirmButtonText: 'OK'
+          });
       }
-    );
-  }
+  );
+}
   formatDate(dateString: string): string {
     return new Date(dateString).toISOString().slice(0, 10);
   }
